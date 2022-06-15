@@ -37,8 +37,8 @@ async function webCat(url, out) {
 let path;
 let out;
 
-//node step3.js --out new-file.txt
-//arg0  arg1    arg2    arg3
+//node step3.js --out new-file.txt  file-path.txt OR http://.com
+//arg0  arg1    arg2    arg3        arg4
 
 if (process.argv[2] === '--out') {
 	out = process.argv[3];
@@ -48,7 +48,7 @@ if (process.argv[2] === '--out') {
 }
 
 if (path.slice(0, 4) === 'http') {
-	webCat(path);
+	webCat(path, out);
 } else {
 	cat(path, out);
 }
